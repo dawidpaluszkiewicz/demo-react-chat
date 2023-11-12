@@ -11,7 +11,7 @@ export const PluginTrace: Trace = {
     const plugin = window.vfplugin?.[name];
 
     if (plugin?.Message) {
-      context.messages.push({ type: CustomMessage.PLUGIN, payload: { Message: plugin.Message } });
+      context.messages.push({ type: CustomMessage.PLUGIN, payload: trace.payload });
     } else {
       context.messages.push({
         type: 'text',

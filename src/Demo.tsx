@@ -13,8 +13,24 @@ import { VideoMessage } from './messages/VideoMessage.component';
 import { DemoContainer } from './styled';
 import { useLiveAgent } from './use-live-agent.hook';
 
-const IMAGE = 'https://picsum.photos/seed/1/200/300';
-const AVATAR = 'https://picsum.photos/seed/1/80/80';
+const IMAGE = 'https://dope-ai.github.io/dope-ai-static-public/img/finance_chat_avatar.png';
+const AVATAR = 'https://dope-ai.github.io/dope-ai-static-public/img/finance_chat_avatar.png';
+
+interface ElementProps {
+  link: string;
+}
+
+const Component: React.FC<ElementProps> = ({ link }) => {
+  return (
+    <div
+      style={{
+        minHeight: '600px',
+      }}
+    >
+      <iframe height="100%" width="100%" title="calendly" src={link} />
+    </div>
+  );
+};
 
 export const Demo: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -59,8 +75,8 @@ export const Demo: React.FC = () => {
       <ChatWindow.Container>
         <RuntimeAPIProvider {...runtime}>
           <Chat
-            title="My Assistant"
-            description="welcome to my assistant"
+            title="Assistant"
+            description=""
             image={IMAGE}
             avatar={AVATAR}
             withWatermark
@@ -87,7 +103,7 @@ export const Demo: React.FC = () => {
                         ))
                         .with({ type: CustomMessage.VIDEO }, ({ payload: url }) => <VideoMessage url={url} />)
                         .with({ type: CustomMessage.STREAMED_RESPONSE }, ({ payload: { getSocket } }) => <StreamedMessage getSocket={getSocket} />)
-                        .with({ type: CustomMessage.PLUGIN }, ({ payload: { Message } }) => <Message />)
+                        .with({ type: CustomMessage.PLUGIN }, ({ payload: url }) => <Component link={url} />)
                         .otherwise(() => <SystemResponse.SystemMessage {...props} message={message} />)
                     }
                     avatar={AVATAR}
