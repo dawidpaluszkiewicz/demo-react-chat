@@ -1,5 +1,16 @@
 # demo-react-chat
+# Dawid's README
 
+##  How to set it up and run it
+1. Download and install node.js from https://nodejs.org/en/download.
+2. Check if you have npm. If yes go to next step. If no install it using this link https://nodejs.org/en/download/package-manager/
+3. Install yarn with ```npm install --global yarn```
+4. Run ```yarn install```
+5. Run ```yarn dev```
+6. Go to localhost:3006 and test chatbot
+
+
+# Original README
 ## Install Dependencies
 
 ```sh
@@ -56,49 +67,3 @@ To demo this functionality you will need to run a local WebSocket server that wi
 The `server/` directory contains a sample server with some basic integrations.
 See the [README](server/README.md) for more information.
 
-## Invoke Custom Actions
-
-### `account_info`
-
-- "What is my account status?"
-- "Can I check my account?"
-- "What is the status of my account?"
-
-This will re-use our existing text messages to display a message with the user's account information.
-The `created_at` date is rendered with the locale-appropriate date format.
-
-### `calendar`
-
-- "Can I book an appointment?"
-- "I want to schedule a meeting"
-
-This will re-use our existing text messages to display a message with the user's account information.
-The `created_at` date is rendered with the locale-appropriate date format.
-
-### `video`
-
-- "What services to you offer?"
-- "Give me a list of services you provide"
-- "What do you offer?"
-
-This will re-use our existing text messages to display a message with the user's account information.
-The `created_at` date is rendered with the locale-appropriate date format.
-
-### `talk_to_agent`
-
-- "I want to talk to a human"
-- "Please connect me to a human"
-
-This will switch the conversation into a mode that emulates talking with a live agent.
-New messages will skip the Voiceflow logic and be sent directly to the agent.
-You can also end the live conversation and return to talking with the Voiceflow bot.
-Make sure to run the server in `./server` with the command `yarn dev`.
-
-### `plugin:tetris`
-
-- "Open tetris"
-- "Launch tetris"
-
-This will display an embedded `<iframe>` pointed at `https://tetris.com/`.
-It is meant to showcase how you can distribute "plugin" scripts that dynamically add functionality to the widget.
-Make sure to build the plugin in `./plugin` with the command `yarn build`.
